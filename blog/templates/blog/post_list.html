@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="content" data-content="content-2">
+  <div class="board_type1_wrap">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"><center>번호</center></th>
+            <th scope="col"><center>제목</center></th>
+            <th scope="col"><center>작성자</center></th>
+            <th scope="col"><center>작성날짜</center></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+
+          <tr>
+            <th scope="row"><center>{{ post.pk }}</center></th>
+            <td><a href="{% url "post_detail" pk=post.pk %}">{{ post.title }}</a></td>
+            <td><center>{{ post.author }}</center></td>
+            <td><center>{{ post.published_date }}</center></td>
+          </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
